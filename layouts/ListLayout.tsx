@@ -10,6 +10,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import Image from 'next/image'
 
+
 interface PaginationProps {
   totalPages: number
   currentPage: number
@@ -114,7 +115,7 @@ export default function ListLayout({
         <ul className="grid sm:grid-cols-1  gap-4">
           {!filteredBlogPosts.length && 'N ha post que mostrar.'}
           {displayPosts.map((post) => {
-            const { path, date, title, summary, tags, imagenp } = post
+            const { path, date, title, summary, tags, image } = post
             return (
               <li
                 
@@ -124,7 +125,7 @@ export default function ListLayout({
                   <div className="space-y-3 xl:col-span-3 md:flex ">
 
                     <Image
-                      src={imagenp}
+                      src={image}
                       width={300}
                       height={300}
                       alt={title}
