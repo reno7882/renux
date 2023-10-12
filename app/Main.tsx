@@ -50,7 +50,7 @@ export default function Home({ posts }) {
                           </h2>
 
                           <div>
-                            {/* {console.log(images[0])} */}
+                         
                             <Image src={image} alt="algo" width={200} height={200} />
                           </div>
 
