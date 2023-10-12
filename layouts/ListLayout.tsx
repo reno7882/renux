@@ -112,9 +112,9 @@ export default function ListLayout({
           </div>
         </div>
         <ul className="grid sm:grid-cols-1  gap-4">
-          {!filteredBlogPosts.length && 'No posts found.'}
+          {!filteredBlogPosts.length && 'N ha post que mostrar.'}
           {displayPosts.map((post) => {
-            const { path, date, title, summary, tags, image } = post
+            const { path, date, title, summary, tags, imagenp } = post
             return (
               <li
                 
@@ -124,7 +124,7 @@ export default function ListLayout({
                   <div className="space-y-3 xl:col-span-3 md:flex ">
 
                     <Image
-                      src={image}
+                      src={imagenp}
                       width={300}
                       height={300}
                       alt={title}
