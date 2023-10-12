@@ -25,14 +25,14 @@ module.exports = {
         sans: ['var(--font-roboto)', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.violet,
+        primary: colors.sky,
         gray: colors.gray,
       },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
             a: {
-              color: theme('colors.primary.800'),
+              color: theme('colors.primary.900'),
               '&:hover': {
                 color: `${theme('colors.primary.600')}`,
               },

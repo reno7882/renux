@@ -8,6 +8,7 @@ import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
+import Image from 'next/image'
 
 interface PaginationProps {
   totalPages: number
@@ -78,9 +79,9 @@ export default function ListLayout({
 
   return (
     <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div>
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-800 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          <h1 className="text-3xl leading-9 tracking-tight text-indigo-950 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
             {title}
           </h1>
           <div className="relative max-w-lg">
@@ -110,34 +111,57 @@ export default function ListLayout({
             </svg>
           </div>
         </div>
-        <ul>
+        <ul className="grid sm:grid-cols-1  gap-4">
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((post) => {
-            const { path, date, title, summary, tags } = post
+            const { path, date, title, summary, tags, image } = post
             return (
-              <li key={path} className="py-4">
-                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                  <dl>
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                      <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                    </dd>
-                  </dl>
-                  <div className="space-y-3 xl:col-span-3">
-                    <div>
-                      <h3 className="text-2xl font-bold leading-8 tracking-tight">
-                        <Link href={`/${path}`} className="text-gray-800 dark:text-gray-100">
+              <li
+                
+                className="p-4 border border-gray-200 dark:border dark:border-gray-700 bg-slate-400/10 dark:bg-slate-900 rounded shadow-md dark:hover:border-sky-500 dark:hover:bg-gray-900	"  key={path}
+              >
+                <article className="">
+                  <div className="space-y-3 xl:col-span-3 md:flex ">
+
+                    <Image
+                      src={image}
+                      width={300}
+                      height={300}
+                      alt={title}
+                      className="@screen sm w-full lg:max-w-sm py-4 "
+                    />
+
+                    <div className='pl-4'>
+                      <h2 className="text-2xl  leading-8 tracking-tight 	">
+                        <Link href={`/${path}`} className="text-blue-950 dark:text-gray-100">
                           {title}
                         </Link>
-                      </h3>
-                      <div className="flex flex-wrap">
+                      </h2>
+                      <dl className='pb-1'>
+                        <dt className="sr-only">Publicado el</dt>
+                        <dd className="text-base font-medium leading-6 text-gray-600 dark:text-gray-400">
+                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                        </dd>
+                      </dl>
+                      <div className="flex flex-wrap py-3">
                         {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                       </div>
-                    </div>
-                    <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                      {summary}
+                      <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+
+                        {summary}...
+                        
+                      </div>
+
+                        <Link
+                          href={`/${path}`}
+                          className="text-primary-800 dark:text-purple-500 hover:text-primary-600 dark:hover:text-primary-400"
+                          aria-label={`Leer más "${title}"`}
+                        >
+                          Leer más &rarr;
+                        </Link> 
                     </div>
                   </div>
+       
                 </article>
               </li>
             )
