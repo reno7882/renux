@@ -124,7 +124,7 @@ export default function ListLayout({
                 <article className="">
                   <div className="space-y-3 xl:col-span-3 md:flex ">
 
-                    <Image
+                    <img
                       src={image}
                       width={300}
                       height={300}
