@@ -129,7 +129,7 @@ export default function ListLayout({
                       width={300}
                       height={300}
                       alt={title}
-                      className="@screen sm w-full lg:max-w-sm py-4 "
+                      className="@screen sm w-full md:max-w-sm lg:max-w-sm py-4 "
                     />
 
                     <div className='pl-4'>
