@@ -115,7 +115,7 @@ export default function ListLayout({
         <ul className="grid sm:grid-cols-1  gap-4">
           {!filteredBlogPosts.length && 'N ha post que mostrar.'}
           {displayPosts.map((post) => {
-            const { path, date, title, summary, tags, image } = post
+            const { path,title, summary, tags, image } = post
             return (
               <li
                 
@@ -141,12 +141,12 @@ export default function ListLayout({
                           {title}
                         </Link>
                       </h2>
-                      <dl className='pb-1'>
+                      {/* <dl className='pb-1'>
                         <dt className="sr-only">Publicado el</dt>
                         <dd className="text-base font-medium leading-6 text-gray-600 dark:text-gray-400">
                           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         </dd>
-                      </dl>
+                      </dl> */}
                       <div className="flex flex-wrap py-3">
                         {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                       </div>
