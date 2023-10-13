@@ -40,6 +40,6 @@
     ".contentlayer/generated",
     ".contentlayer/generated/**/*.json",
     ".next/types/**/*.ts"
-  ],
+, "components/ImagenPrincipal.jsx"  ],
   "exclude": ["node_modules"]
 }
