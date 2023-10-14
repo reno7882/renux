@@ -84,5 +84,7 @@ module.exports = () => {
 
       return config
     },
+    timezone: 'America/Mexico_City',
+    syncFrom: 'time.nist.gov',
   })
 }

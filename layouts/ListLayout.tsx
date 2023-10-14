@@ -10,6 +10,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ImagenPrincipal from '@/components/ImagenPrincipal'
 import moment from 'moment'
+import MiFecha from '@/components/MiFecha'
 
 
 interface PaginationProps {
@@ -118,7 +119,6 @@ export default function ListLayout({
           {displayPosts.map((post) => {
             const { path, date, title, summary, tags, image } = post
             const formattedDate = moment(date).local().format("YYYY-MM-DD HH:mm:ss");
-
             const blurDataUrl =
               'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+h/X+R0lNTk+Pj/pjcL/w48Izw6vI2/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO1'
             return (
@@ -146,8 +146,7 @@ export default function ListLayout({
                       <dl>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                          {/* <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time> */}
-                          {formattedDate}
+                          <MiFecha date={date} />
                           
                         </dd>
                       </dl>
