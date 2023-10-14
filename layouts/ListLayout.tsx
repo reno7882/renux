@@ -118,9 +118,8 @@ export default function ListLayout({
           {!filteredBlogPosts.length && 'N ha post que mostrar.'}
           {displayPosts.map((post) => {
             const { path, date, title, summary, tags, image } = post
-            const formattedDate = moment(date).local().format("YYYY-MM-DD HH:mm:ss");
-            const blurDataUrl =
-              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+h/X+R0lNTk+Pj/pjcL/w48Izw6vI2/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO1'
+            // const blurDataUrl =
+            //   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+h/X+R0lNTk+Pj/pjcL/w48Izw6vI2/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO1'
             return (
               <li
               className="p-4 border border-gray-200 dark:border dark:border-gray-700 bg-slate-400/10 dark:bg-slate-900 rounded shadow-md dark:hover:border-sky-500 dark:hover:bg-gray-900	"  key={path}
@@ -132,9 +131,9 @@ export default function ListLayout({
                       alt={title}
                       width={300}
                       height={300}
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={blurDataUrl}
+                      // loading="lazy"
+                      // placeholder="blur"
+                      // blurDataURL={blurDataUrl}
                     />
 
                     <div className="pl-4">
