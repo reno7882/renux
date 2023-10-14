@@ -2,13 +2,14 @@
 
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { formatDate } from 'pliny/utils/formatDate'
+// import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ImagenPrincipal from '@/components/ImagenPrincipal'
+import moment from 'moment'
 
 
 interface PaginationProps {
@@ -115,21 +116,28 @@ export default function ListLayout({
         <ul className="grid sm:grid-cols-1  gap-4">
           {!filteredBlogPosts.length && 'N ha post que mostrar.'}
           {displayPosts.map((post) => {
-            const { path,date,  title, summary, tags, image } = post
-            const blurDataUrl = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+h/X+R0lNTk+Pj/pjcL/w48Izw6vI2/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO1";
+            const { path, date, title, summary, tags, image } = post
+            const formattedDate = moment(date).local().format("YYYY-MM-DD HH:mm:ss");
+
+            const blurDataUrl =
+              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+h/X+R0lNTk+Pj/pjcL/w48Izw6vI2/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO1'
             return (
               <li
-                
-                className="p-4 border border-gray-200 dark:border dark:border-gray-700 bg-slate-400/10 dark:bg-slate-900 rounded shadow-md dark:hover:border-sky-500 dark:hover:bg-gray-900	"  key={path}
+              className="p-4 border border-gray-200 dark:border dark:border-gray-700 bg-slate-400/10 dark:bg-slate-900 rounded shadow-md dark:hover:border-sky-500 dark:hover:bg-gray-900	"  key={path}
               >
                 <article className="">
                   <div className="space-y-3 xl:col-span-3 md:flex ">
+                    <ImagenPrincipal
+                      src={image}
+                      alt={title}
+                      width={300}
+                      height={300}
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={blurDataUrl}
+                    />
 
-
-                    <ImagenPrincipal src={image} alt={title} width={300} height={300} loading="lazy" placeholder="blur" blurDataURL={blurDataUrl}	/>
-
-
-                    <div className='pl-4'>
+                    <div className="pl-4">
                       <h2 className="text-2xl  leading-8 tracking-tight 	">
                         <Link href={`/${path}`} className="text-blue-950 dark:text-gray-100">
                           {title}
@@ -138,28 +146,30 @@ export default function ListLayout({
                       <dl>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                          {/* <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time> */}
+                          {formattedDate}
+                          
                         </dd>
                       </dl>
+                   
                       <div className="flex flex-wrap py-3">
                         {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                       </div>
                       <div className="prose max-w-none text-gray-500 dark:text-gray-400 mb-2">
-
+                      
                         {summary}...
-                        
+
                       </div>
 
-                        <Link
-                          href={`/${path}`}
-                          className="text-primary-800 dark:text-purple-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Leer más "${title}"`}
-                        >
-                          Leer más &rarr;
-                        </Link> 
+                      <Link
+                        href={`/${path}`}
+                        className="text-primary-800 dark:text-purple-500 hover:text-primary-600 dark:hover:text-primary-400"
+                        aria-label={`Leer más "${title}"`}
+                      >
+                        Leer más &rarr;
+                      </Link>
                     </div>
                   </div>
-       
                 </article>
               </li>
             )
