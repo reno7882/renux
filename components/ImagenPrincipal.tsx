@@ -1,7 +1,7 @@
 import siteMetadata from '@/data/siteMetadata'
 import Image from 'next/image'
 
-function ImagenPrincipal({ src, alt, width, height}) {
+function ImagenPrincipal({ src, alt, style, width, height}) {
   return (
     <>
       <Image
@@ -9,6 +9,10 @@ function ImagenPrincipal({ src, alt, width, height}) {
         alt={alt}
         width={width}
         height={height}
+        style={{
+          width: '100%',
+          height: 'auto',
+        }}
         // loading={loading}
         // placeholder={placeholder}	
         // blurDataURL={blurDataURL}

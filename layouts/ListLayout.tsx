@@ -129,6 +129,10 @@ export default function ListLayout({
                     <ImagenPrincipal
                       src={image}
                       alt={title}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                      }}
                       width={300}
                       height={300}
                       // loading="lazy"
