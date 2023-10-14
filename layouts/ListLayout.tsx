@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { formatDate } from 'pliny/utils/formatDate'
+// import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
@@ -115,7 +115,8 @@ export default function ListLayout({
         <ul className="grid sm:grid-cols-1  gap-4">
           {!filteredBlogPosts.length && 'N ha post que mostrar.'}
           {displayPosts.map((post) => {
-            const { path, date, title, summary, tags, image } = post
+            const { path,  title, summary, tags, image } = post
+            const blurDataUrl = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+h/X+R0lNTk+Pj/pjcL/w48Izw6vI2/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/4uO16v/";
             return (
               <li
                 
@@ -124,15 +125,8 @@ export default function ListLayout({
                 <article className="">
                   <div className="space-y-3 xl:col-span-3 md:flex ">
 
-                    {/* <Image
-                      src={image}
-                      width={300}
-                      height={300}
-                      alt={title}
-                      className="@screen sm w-full md:max-w-sm lg:max-w-sm py-4 "
-                    /> */}
 
-                    <ImagenPrincipal src={image} alt={title} width={300} height={300}/>
+                    <ImagenPrincipal src={image} alt={title} width={300} height={300} loading="lazy" placeholder="blur" blurDataURL={blurDataUrl}	/>
 
 
                     <div className='pl-4'>
@@ -141,12 +135,7 @@ export default function ListLayout({
                           {title}
                         </Link>
                       </h2>
-                      <dl className='pb-1'>
-                        <dt className="sr-only">Publicado el</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-600 dark:text-gray-400">
-                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                        </dd>
-                      </dl>
+
                       <div className="flex flex-wrap py-3">
                         {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                       </div>
