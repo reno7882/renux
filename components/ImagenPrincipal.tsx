@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-function ImagenPrincipal({ src, alt, width, height, placeholder, blurDataURL}) {
+function ImagenPrincipal({ src, alt, width, height, placeholder, blurDataURL, sizes}) {
   return (
     <>
       <Image
@@ -13,6 +13,7 @@ function ImagenPrincipal({ src, alt, width, height, placeholder, blurDataURL}) {
         // loading={loading}
         placeholder={placeholder}	
         blurDataURL={blurDataURL}
+        sizes={sizes}
         className="@screen sm w-full md:max-w-sm lg:max-w-sm py-4 "
       />
     </>
